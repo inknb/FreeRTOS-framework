@@ -1,22 +1,13 @@
-\# RoboMaster 步兵机器人电控框架
+# RoboMaster 步兵机器人电控框架
 
-https://img.shields.io/badge/Language-C-blue.svg](https://github.com/your-repo)
-
-https://img.shields.io/badge/Platform-STM32F4-green.svg](https://www.st.com/)
-
-https://img.shields.io/badge/RTOS-FreeRTOS-orange.svg](https://www.freertos.org/)
+![Build Status](https://img.shields.io/badge/Build-Keil_MDK-brightgreen)
+![Platform](https://img.shields.io/badge/Platform-STM32F4-blue)
+![License](https://img.shields.io/badge/License-AGPL-orange)
 
 
+## 📖 项目简介
 
-\## 📖 项目简介
-
-
-
-本项目是基于 \*\*STM32F4\*\* 和 \*\*FreeRTOS\*\* 的 RoboMaster 步兵机器人电控基础框架。采用\*\*分层架构(BSP/Device/Algorithm/APP)\*\* 设计，实现底盘全向移动、云台 IMU 稳像控制和基础人机交互。
-
-
-
-该框架定位为模块化、可维护的\*\*最小可行产品(MVP)\*\*，适合作为新车开发的起点或电控队员的训练模板。
+本项目为 RoboMaster 步兵机器人的嵌入式底层控制代码。基于 **STM32F427** 平台，采用 **FreeRTOS** 架构。
 
 
 
@@ -37,26 +28,16 @@ https://img.shields.io/badge/RTOS-FreeRTOS-orange.svg](https://www.freertos.org/
 User/
 
 ├── APP/                    # 应用任务层
-
 │   ├── chassis\_task.c     # 底盘运动控制（麦轮解算 + 速度环 PID）
-
 │   └── gimbal\_task.c      # 云台稳像控制（串级 PID + IMU 反馈）
-
 ├── Algorithm/              # 算法层
-
 │   └── pid.c              # 通用 PID 控制器实现
-
 ├── Devices/                # 设备抽象层
-
 │   └── motor.c            # 大疆电机协议解析（M3508 / GM6020）
-
 └── BSP/                    # 板级支持包
-
-&nbsp;   ├── bsp\_can.c          # CAN 总线收发（电机通信）
-
-&nbsp;   ├── bsp\_rc.c           # 遥控器 DBUS 解析（DR16）
-
-&nbsp;   └── bsp\_imu.c          # 姿态传感器驱动（HWT606）
+      ├── bsp\_can.c          # CAN 总线收发（电机通信）
+      ├── bsp\_rc.c             # 遥控器 DBUS 解析（DR16）
+      └── bsp\_imu.c          # 姿态传感器驱动（HWT606）
 
 ```
 
@@ -121,42 +102,6 @@ User/
 ---
 
 
-
-\## 🚀 快速开始
-
-
-
-\### 1. 克隆仓库
-
-```bash
-
-git clone <repository\_url>
-
-```
-
-
-
-\### 2. 环境准备
-
-\- 安装 https://code.visualstudio.com/ 及 https://github.com/github0null/eide 插件
-
-\- 安装 ARMCC (AC5) 或 ARMCLANG (AC6) 编译器
-
-\- 安装 https://www.st.com/（用于底层配置修改）
-
-
-
-\### 3. 编译与烧录
-
-\- 在 EIDE 中打开项目工作区
-
-\- 点击 \*\*Build\*\* 编译（确保无 Error）
-
-\- 连接 J-Link 或 ST-Link，点击 \*\*Flash\*\* 烧录
-
-
-
----
 
 
 
