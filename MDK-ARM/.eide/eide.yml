@@ -30,6 +30,7 @@ virtualFolder:
                 - path: ../Core/Src/stm32f4xx_it.c
                 - path: ../Core/Src/stm32f4xx_hal_msp.c
                 - path: ../Core/Src/stm32f4xx_hal_timebase_tim.c
+                - path: ../Core/Src/system_stm32f4xx.c
               folders: []
     - name: Drivers
       files: []
@@ -95,6 +96,10 @@ targets:
         - ../Drivers/CMSIS/Include
         - .cmsis/include
         - RTE/_FreeRTOS-framework
+        - ../User/Algorithm
+        - ../User/APP
+        - ../User/BSP
+        - ../User/Devices
       libList: []
     excludeList: []
     toolchain: AC5
@@ -152,8 +157,8 @@ targets:
             - id: 1
               isChecked: true
               mem:
-                size: ""
-                startAddr: ""
+                size: "0x00020000"
+                startAddr: "0x20000000"
               noInit: false
               tag: IRAM
             - id: 2
@@ -189,8 +194,8 @@ targets:
               isChecked: true
               isStartup: true
               mem:
-                size: ""
-                startAddr: ""
+                size: "0x001000000"
+                startAddr: "0x08000000"
               tag: IROM
             - id: 2
               isChecked: true
