@@ -1,0 +1,42 @@
+# --- EIDE / VS Code ---
+.vscode/
+build/
+*.dep
+*.code-workspace
+# 排除 EIDE 的日志，但保留 eide.json (它是工程配置文件)
+.eide/log/
+.eide/toolchain.json
+
+# --- Keil MDK-ARM ---
+MDK-ARM/RTE/
+MDK-ARM/*.uvoptx
+MDK-ARM/*.uvguix.*
+MDK-ARM/DebugConfig/
+MDK-ARM/Listings/
+MDK-ARM/Objects/
+*.scvd
+*.lst
+*.map
+
+# --- Compiler Outputs ---
+*.o
+*.d
+*.crf
+*.axf
+*.elf
+*.hex
+*.bin
+*.srec
+*.lib
+
+# --- STM32CubeMX ---
+*.bak
+*.mxproject
+
+# --- J-Link / Debuggers ---
+JLinkLog.txt
+*.jlink
+
+# --- System ---
+.DS_Store
+Thumbs.db

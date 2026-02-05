@@ -24,13 +24,12 @@ virtualFolder:
                 - path: ../Core/Src/main.c
                 - path: ../Core/Src/gpio.c
                 - path: ../Core/Src/freertos.c
+                - path: ../Core/Src/can.c
+                - path: ../Core/Src/dma.c
+                - path: ../Core/Src/usart.c
                 - path: ../Core/Src/stm32f4xx_it.c
                 - path: ../Core/Src/stm32f4xx_hal_msp.c
                 - path: ../Core/Src/stm32f4xx_hal_timebase_tim.c
-                - path: ../Core/Src/can.c
-                - path: ../Core/Src/system_stm32f4xx.c
-                - path: ../Core/Src/dma.c
-                - path: ../Core/Src/usart.c
               folders: []
     - name: Drivers
       files: []
@@ -39,6 +38,7 @@ virtualFolder:
           files:
             - path: ../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim.c
             - path: ../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c
+            - path: ../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_can.c
             - path: ../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c
             - path: ../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc_ex.c
             - path: ../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash.c
@@ -52,7 +52,6 @@ virtualFolder:
             - path: ../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.c
             - path: ../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c
             - path: ../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_exti.c
-            - path: ../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_can.c
             - path: ../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c
           folders: []
         - name: CMSIS
@@ -96,10 +95,6 @@ targets:
         - ../Drivers/CMSIS/Include
         - .cmsis/include
         - RTE/_FreeRTOS-framework
-        - ../User/Algorithm
-        - ../User/APP
-        - ../User/BSP
-        - ../User/Devices
       libList: []
     excludeList: []
     toolchain: AC5
@@ -157,8 +152,8 @@ targets:
             - id: 1
               isChecked: true
               mem:
-                size: "0x00020000"
-                startAddr: "0x20000000"
+                size: ""
+                startAddr: ""
               noInit: false
               tag: IRAM
             - id: 2
@@ -194,8 +189,8 @@ targets:
               isChecked: true
               isStartup: true
               mem:
-                size: "0x00100000"
-                startAddr: "0x08000000"
+                size: ""
+                startAddr: ""
               tag: IROM
             - id: 2
               isChecked: true
@@ -209,25 +204,7 @@ targets:
         archExtensions: ""
         cpuType: Cortex-M4
         floatingPointHardware: single
-        options:
-          version: 3
-          afterBuildTasks: []
-          asm-compiler:
-            $use: asm-auto
-          beforeBuildTasks: []
-          c/cpp-compiler:
-            language-c: c99
-            language-cpp: c++11
-            link-time-optimization: true
-            optimization: level-3
-            warnings: ac5-like-warnings
-          global:
-            output-debug-info: enable
-          linker:
-            $outputTaskExcludes:
-              - .bin
-            misc-controls: --diag_suppress=L6329
-            output-format: elf
+        options: ""
         scatterFilePath: <YOUR_SCATTER_FILE>.sct
         storageLayout:
           RAM:
