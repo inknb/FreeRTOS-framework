@@ -40,3 +40,5 @@ JLinkLog.txt
 # --- System ---
 .DS_Store
 Thumbs.db
+MDK-ARM/.vscode/keil-assistant.log
+MDK-ARM/.vscode/keil-assistant.log
